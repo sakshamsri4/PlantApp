@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/home/components/recomend_plant.dart';
+import 'package:plant_app/screens/home/components/recommend_plant_card.dart';
 
 import 'header_with_searchBox.dart';
 import 'title_with_custom_underline.dart';
@@ -15,36 +17,14 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     // It enables scrolling on small device
     return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
       child: Column(
         children: [
           HeaderWithSearchBox(size: size),
-          const TitleWithMoreBtn(title: 'Recommended'),
-          Container(
-            width: size.width * 0.4,
-            child: Column(
-              children: [
-                Image.asset('assets/images/image_1.png'),
-                Container(
-                  margin: EdgeInsets.only(
-                    left: kDefaultPadding,
-                    top: kDefaultPadding / 2,
-                    bottom: kDefaultPadding * 2.5,
-                  ),
-                  padding: EdgeInsets.all(kDefaultPadding / 2),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 50,
-                        color: kPrimaryColor.withOpacity(.23),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
+          TitleWithMoreBtn(title: 'Recommended', press: () {}),
+          // It will cover 40% of our total width
+          RecomendsPlants(),
+          TitleWithMoreBtn(title: 'Featured Plants', press: () {}),
         ],
       ),
     );
