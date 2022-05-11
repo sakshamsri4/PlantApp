@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:plant_app/constants.dart';
+import 'package:plant_app/screens/home/components/featured_plants.dart';
 import 'package:plant_app/screens/home/components/recomend_plant.dart';
 import 'package:plant_app/screens/home/components/recommend_plant_card.dart';
 
@@ -25,6 +27,10 @@ class Body extends StatelessWidget {
           // It will cover 40% of our total width
           RecomendsPlants(),
           TitleWithMoreBtn(title: 'Featured Plants', press: () {}),
+          FeaturedPlants(),
+          SizedBox(
+            height: kDefaultPadding,
+          ),
         ],
       ),
     );
